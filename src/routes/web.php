@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ComponentTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +28,6 @@ Route::middleware('auth:users')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/component-test1', [ComponentTestController::class, 'ShowComponent1']);
-Route::get('/component-test2', [ComponentTestController::class, 'ShowComponent2']);
+
 
 require __DIR__ . '/auth.php';
