@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
-
+use App\Http\Controllers\Admin\Auth\OwnersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +26,9 @@ use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 Route::get('/', function () {
     return view('admin.welcome');
 });
+
+Route::resource('owners', OwnersController::class)
+    ->middleware('auth:admin');
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');

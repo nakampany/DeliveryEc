@@ -11,6 +11,13 @@ return new class extends Migration
      *
      * @return void
      */
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'app\Models\Admin';
+
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
