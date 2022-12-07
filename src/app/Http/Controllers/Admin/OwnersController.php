@@ -23,7 +23,8 @@ class OwnersController extends Controller
 
     public function index()
     {
-        $owners = Owner::select('name', 'email', 'created_at')->get();
+        dd('huxsgui');
+        // $owners = Owner::select('name', 'email', 'created_at')->get();
         // $q_get = DB::table('owners')->select('name', 'created_at')->get();
         // $q_first = DB::table('owners')->select('name')->first();
 
@@ -32,7 +33,7 @@ class OwnersController extends Controller
         // ]);
 
         // dd($e_all, $q_get, $q_first, $c_test);
-        return view('admin.owner.index', compact('owners'));
+        // return view('admin.owner.index', compact('owners'));
     }
 
     /**
@@ -53,7 +54,6 @@ class OwnersController extends Controller
      */
     public function store(Request $request)
     {
-        $request->
     }
 
     /**
