@@ -11,27 +11,28 @@
                 <div class="p-6 text-gray-900">
                     <section class="text-gray-600 body-font">
                         <div class="container px-5 mx-auto">
+                            <x-flash-message status="info"></x-flash-message>
                             <div class="flex justify-end mb-4">
-                                <button onclick="location.href='{{ route('admin.owners.index') }}'" class="text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">新規登録</button>
+                                <button onclick="location.href='{{ route('admin.owners.create'); }}'" class="bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">新規登録</button>
                             </div>
                             <div class="lg:w-2/3 w-full mx-auto overflow-auto">
                                 <table class="table-auto w-full text-left whitespace-no-wrap">
                                     <thead>
                                         <tr>
-                                            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">名前</th>
-                                            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">メール</th>
-                                            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">作成日</th>
+                                            <th class="px-4 py-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">名前</th>
+                                            <th class="px-4 py-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">メール</th>
+                                            <th class="px-4 py-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">作成日</th>
                                             <th class="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($e_owners as $e_owner)
+                                        @foreach ($owners as $owner)
                                         <tr>
-                                            <td class="px-4 py-3">{{ $e_owner->name }}</td>
-                                            <td class="px-4 py-3">{{ $e_owner->email }}</td>
-                                            <td class="px-4 py-3">{{ $e_owner->created_at->diffForHumans() }}</td>
+                                            <td class="px-4 py-4">{{ $owner->name }}</td>
+                                            <td class=" px-4 py-4">{{ $owner->email }}</td>
+                                            <td class="px-4 py-4">{{ $owner->created_at->diffForHumans() }}</td>
                                             <td class="w-10 text-center">
-                                                <input name="plan" type="radio">
+                                                <button type="submit" onclick=" location.href='{{ route('admin.owners.edit', [ 'owner' => $owner->id ]); }}'" class="bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">編集する</button>
                                             </td>
                                         </tr>
                                         @endforeach
