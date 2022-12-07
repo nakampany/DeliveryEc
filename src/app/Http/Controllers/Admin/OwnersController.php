@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Owner;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class OwnersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response,
      */
     public function __construct()
     {
@@ -41,7 +42,7 @@ class OwnersController extends Controller
      */
     public function create()
     {
-    return view('admin.owners.create')
+        return view('admin.owners.create');
     }
 
     /**
@@ -52,7 +53,7 @@ class OwnersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->
     }
 
     /**
