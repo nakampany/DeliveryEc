@@ -12,7 +12,6 @@ class RedirectIfAuthenticated
     protected const GUARD_USER = 'users';
     protected const GUARD_OWNER = 'owners';
     protected const GUARD_ADMIN = 'admin';
-
     /**
      * Handle an incoming request.
      *
