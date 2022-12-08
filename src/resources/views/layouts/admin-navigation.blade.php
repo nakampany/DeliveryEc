@@ -42,10 +42,6 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('admin.profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
-
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('admin.logout') }}">
                             @csrf
@@ -87,9 +83,22 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('admin.profile.edit')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
+                <div class="pt-2 pb-3 space-y-1">
+                    <x-responsive-nav-link :href="route('user.dashboard')" :active="request()->routeIs('user.dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-responsive-nav-link>
+                </div>
+                <div class="pt-2 pb-3 space-y-1">
+                    <x-responsive-nav-link :href="route('admin.owners.index')" :active="request()->routeIs('admin.owners.index')">
+                        オーナー管理
+                    </x-responsive-nav-link>
+                </div>
+                <div class="pt-2 pb-3 space-y-1">
+                    <x-responsive-nav-link :href="route('admin.expired-owners.index')" :active="request()->routeIs('admin.expired-owners.index')">
+                        期限切れオーナー一覧
+                    </x-responsive-nav-link>
+                </div>
+
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('admin.logout') }}">
