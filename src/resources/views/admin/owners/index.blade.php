@@ -45,14 +45,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
-                                <a class="text-yellow-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                    </svg>
-                                </a>
-                                <button class="flex ml-auto text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded">Button</button>
+                                {{ $owners->links() }}
                             </div>
                         </div>
                     </section>
