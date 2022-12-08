@@ -27,7 +27,7 @@
                                         <tr>
                                             <td class="px-4 py-4">{{ $owner->name }}</td>
                                             <td class=" px-4 py-4">{{ $owner->email }}</td>
-                                            <td class="px-4 py-4">{{ $owner->created_at->diffForHumans() }}</td>
+                                            <td class="px-4 py-4">{{ $owner->deleted_at->diffForHumans() }}</td>
                                             <form id="delete_{{$owner->id}}" method="post" action="{{ route('admin.expired-owners.destroy', ['owner' => $owner->id])}}">
                                                 @csrf
                                                 <td class="px-4 py-3 text-center">
