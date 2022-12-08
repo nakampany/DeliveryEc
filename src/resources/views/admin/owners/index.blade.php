@@ -35,9 +35,12 @@
                                             <td class="w-10 text-center">
                                                 <button type="submit" onclick=" location.href='{{ route('admin.owners.edit', [ 'owner' => $owner->id ]); }}'" class="bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">編集</button>
                                             </td>
-                                            <form id="delete_{{$owner->id}}" method="post" action="{{ route('admin.owners.destroy', ['owner' => $owner->id])}}">
-                                                @csrf @method('delete')
-                                                <a href=“#” data-id="{{ $owner->id }}" onclick="deletePost(this)">削除</a>
+                                            <td class="w-10 text-center">
+                                                <form id="delete_{{$owner->id}}" method="post" action="{{ route('admin.owners.destroy', ['owner' => $owner->id])}}">
+                                                    @csrf @method('delete')
+                                                    <a href=“#” data-id="{{ $owner->id }}" onclick="deletePost(this)">削除</a>
+                                                </form>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
