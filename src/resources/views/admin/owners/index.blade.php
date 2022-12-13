@@ -13,7 +13,7 @@
                         <div class="container px-5 mx-auto">
                             <x-flash-message status="session('status')"></x-flash-message>
                             <div class="flex justify-end mb-4">
-                                <button onclick="location.href='{{ route('admin.owners.create'); }}'" class="bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">新規登録</button>
+                                <button onclick="location.href='{{ route('admin.owners.create') }}'" class="bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">新規登録</button>
                             </div>
                             <div class="lg:w-2/3 w-full mx-auto overflow-auto">
                                 <table class="table-auto w-full text-left whitespace-no-wrap">
@@ -33,12 +33,13 @@
                                             <td class=" px-4 py-4">{{ $owner->email }}</td>
                                             <td class="px-4 py-4">{{ $owner->created_at->diffForHumans() }}</td>
                                             <td class="w-10 text-center">
-                                                <button type="submit" onclick=" location.href='{{ route('admin.owners.edit', [ 'owner' => $owner->id ]); }}'" class="bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">編集</button>
+                                                <button type="submit" onclick=" location.href='{{ route('admin.owners.edit', ['owner' => $owner->id]) }}'" class="bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">編集</button>
                                             </td>
                                             <td class="w-10 text-center">
-                                                <form id="delete_{{$owner->id}}" method="post" action="{{ route('admin.owners.destroy', ['owner' => $owner->id])}}">
-                                                    @csrf @method('delete')
-                                                    <a href=“#” data-id="{{ $owner->id }}" onclick="deletePost(this)">削除</a>
+                                                <form method="post" id="delete_{{$owner->id}}" action="{{ route('admin.owners.destroy', ['owner' => $owner->id])}}">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <a data-id="{{ $owner->id }}" onclick="deletePost(this)">削除</a>
                                                 </form>
                                             </td>
                                         </tr>
