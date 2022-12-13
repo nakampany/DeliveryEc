@@ -31,7 +31,7 @@
                                             <form id="delete_{{$owner->id}}" method="post" action="{{ route('admin.expired-owners.destroy', ['owner' => $owner->id])}}">
                                                 @csrf
                                                 <td class="px-4 py-3 text-center">
-                                                    <a href="#" data-id="{{ $owner->id }}" onclick="deletePost(this)" class="text-white bg-red-400 border-0 p-2 focus:outline-none hover:bg-red-500 rounded">完全に削除</a>
+                                                    <a href="#" data-id="{{ $owner->id }}" onclick="deletePost(this)" class="bg-red-400 border-0 p-2 focus:outline-none hover:bg-red-500 rounded">完全に削除</a>
                                                 </td>
                                             </form>
                                         </tr>
