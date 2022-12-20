@@ -32,7 +32,7 @@ class ProductController extends Controller
         // $products = Owner::findOrFail(Auth::id())->shop->product;
         $ownerInfo = Owner::with('shop.product.imageFirst')->where('id', Auth::id())->get();
 
-        return view('owner.products.index', compact('products'));
+        return view('owner.products.index', compact('ownerInfo'));
     }
 
     public function create()
