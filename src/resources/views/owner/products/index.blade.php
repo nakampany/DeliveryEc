@@ -14,16 +14,18 @@
                         <button onclick="location.href='{{ route('owner.products.create') }}'" class="bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">新規登録</button>
                     </div>
                     <div class="flex flex-wrap">
-                        @foreach ($products as $product)
+                        @foreach ($ownerInfo as $owner)
+                        @foreach($owner->shop->product as $product)
                         <div class="w-1/4 p-2 md:p-4">
                             <a href="{{ route('owner.products.edit', ['product' => $product->id ]) }}">
                                 <div class="border rounded-md p-2 md:p-4">
-
                                     <x-thumbnail :filename="$product->imageFirst->filename" type="products" />
+                                    <div class="text-gray-700"></div>
                                     <div class="text-gray-700">{{ $product->name }}</div>
                                 </div>
                             </a>
                         </div>
+                        @endforeach
                         @endforeach
                     </div>
                     {{ $products->links() }}
