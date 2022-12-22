@@ -55,14 +55,13 @@ class CartController extends Controller
         $products = $user->products;
 
         $lineItems = [];
-        foreach($products as $product){
+        foreach ($products as $product) {
             $quantity = '';
             $quantity = Stock::where('product_id', $product->id)->sum('quantity');
 
-            if($product->pivot->quantity > $quantity) {
+            if ($product->pivot->quantity > $quantity) {
                 return redirect()->route('user.cart.index');
-            }
-            else {
+            } else {
                 $lineItem = [
                     'name' => $product->name,
                     'description' => $product->information,
@@ -74,7 +73,7 @@ class CartController extends Controller
             }
         }
         // dd($lineItems);
-        foreach($products as $product){
+        foreach ($products as $product) {
             Stock::create([
                 'product_id' => $product->id,
                 'type' => \Constant::PRODUCT_LIST['reduce'],
@@ -94,8 +93,15 @@ class CartController extends Controller
 
         $publicKey = env('STRIPE_PUBLIC_KEY');
 
-        return view('user.checkout',
-            compact('session', 'publicKey'));
+        return view(
+            'user.checkout',
+            compact('session', 'publicKey')
+        );
     }
+    public function success()
+    {
+        Cart::where('user_id', Auth::id())->get();
+
+        return redirect()->route('user.items.index');
     }
 }
