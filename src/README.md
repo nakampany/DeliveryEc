@@ -65,6 +65,9 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+public ファイルが生成される
+npm run build
+
 seeder 実行
 php artisan migrate:refresh --seed
 
