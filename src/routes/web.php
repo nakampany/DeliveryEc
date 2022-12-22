@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\User\ItemController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes（ユーザールート）
@@ -18,8 +18,11 @@ Route::get('/', function () {
     return view('user.welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('user.dashboard');
-})->middleware(['auth:users', 'verified'])->name('dashboard');
+Route::middleware('auth:users')->group(function () {
+    Route::get('/', [ItemController::class, 'index'])->name('items.index');
+    Route::get('show/{item}', [ItemController::class, 'show'])->name('items.show');
+});
+
+
 
 require __DIR__ . '/auth.php';
