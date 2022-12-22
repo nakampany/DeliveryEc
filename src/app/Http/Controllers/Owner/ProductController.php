@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\ProductRequest;
-
+use Illuminate\Http\Request;
 use Throwable;
 
 class ProductController extends Controller
@@ -48,6 +48,7 @@ class ProductController extends Controller
         $shops = Shop::where('owner_id', Auth::id())
             ->select('id', 'name')
             ->get();
+
         $images = Image::where('owner_id', Auth::id())
             ->select('id', 'title', 'filename')
             ->orderBy('updated_at', 'desc')
@@ -55,10 +56,14 @@ class ProductController extends Controller
 
         $categories = PrimaryCategory::with('secondary')
             ->get();
-        return view('owner.products.create', compact('shops', 'images', 'categories'));
+
+        return view(
+            'owner.products.create',
+            compact('shops', 'images', 'categories')
+        );
     }
 
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
         try {
             DB::transaction(function () use ($request) {
@@ -73,7 +78,6 @@ class ProductController extends Controller
                     'image2' => $request->image2,
                     'image3' => $request->image3,
                     'image4' => $request->image4,
-                    'image5' => $request->image5,
                     'is_selling' => $request->is_selling
                 ]);
 

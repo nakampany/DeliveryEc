@@ -48,7 +48,7 @@
                                     <label for="shop_id" class="leading-7 text-sm text-gray-600">販売する店舗</label>
                                     <select name="shop_id" id="shop_id" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                         @foreach ($shops as $shop )
-                                        <option value="{{ $shop->id}}">
+                                        <option value="{{ $shop->id }}">
                                             {{ $shop->name }}
                                         </option>
                                         @endforeach
@@ -62,14 +62,12 @@
                                         @foreach($categories as $category)
                                         <optgroup label="{{ $category->name }}">
                                             @foreach($category->secondary as $secondary)
-                                            <option value="{{ $secondary->id}}">
+                                            <option value="{{ $secondary->id }}">
                                                 {{ $secondary->name }}
                                             </option>
-                                        </optgroup>
-                                        @endforeach
-                                        @endforeach
+                                            @endforeach
+                                            @endforeach
                                     </select>
-
                                 </div>
                             </div>
                             <x-select-image :images="$images" name="image1" />
