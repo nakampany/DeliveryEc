@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\ItemController;
+use App\Http\Controllers\User\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes（ユーザールート）
@@ -23,6 +24,9 @@ Route::middleware('auth:users')->group(function () {
     Route::get('show/{item}', [ItemController::class, 'show'])->name('items.show');
 });
 
+Route::prefix('cart')->middleware('auth:users')->group(function () {
+    Route::post('add', [CartController::class, 'add'])->name('cart.add');
+});
 
 
 require __DIR__ . '/auth.php';

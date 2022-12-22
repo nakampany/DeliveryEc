@@ -6,7 +6,7 @@ import 'swiper/swiper-bundle.css';
 
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 
-SwiperCore.use([Navigation, Pagination]);
+Swiper.use([Navigation, Pagination]);
 
 const swiper = new Swiper('.swiper', {
 // Optional parameters
