@@ -8,6 +8,8 @@ services:
     build:
       context: .
       dockerfile: ./docker/php/Dockerfile
+    ports:
+      - ${WEB_PORT}
     volumes:
       - ./src/:/var/www/html
     environment:
