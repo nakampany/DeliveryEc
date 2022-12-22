@@ -12,7 +12,6 @@
                     <form method="post" action="{{ route('owner.images.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="-m-2">
-
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
                                     <label for="image" class="leading-7 text-sm text-gray-600">画像</label>
