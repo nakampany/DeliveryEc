@@ -9,7 +9,6 @@ use App\Models\Image;
 use App\Models\Shop;
 use App\Models\PrimaryCategory;
 use App\Models\Stock;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
