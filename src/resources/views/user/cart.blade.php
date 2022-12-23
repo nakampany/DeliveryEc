@@ -25,7 +25,7 @@
                             <div>{{ number_format($product->pivot->quantity * $product->price )}}<span class="text-sm text-gray-700">円(税込)</span></div>
                         </div>
                         <div class="md:w-2/12">
-                            <form method="post" action="{{route('user.cart.delete', ['item' => $product->id ])}}">
+                            <form method="post" action="{{ route('user.cart.delete', [ 'item' => $product->id ]) }}">
                                 @csrf
                                 <button>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -37,10 +37,10 @@
                     </div>
                     @endforeach
                     <div class="my-2">
-                        小計: {{ number_format($totalPrice)}}<span class="text-sm text-gray-700">円(税込)</span>
+                        小計: {{ number_format($totalPrice) }}<span class="text-sm text-gray-700">円(税込)</span>
                     </div>
                     <div>
-                        <button onclick="location.href='{{ route('user.cart.checkout')}}'" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">購入する
+                        <button onclick="location.href='{{ route('user.cart.checkout') }}'" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">購入する
                         </button>
                     </div>
                     @else

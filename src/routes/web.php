@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\ItemController;
 use App\Http\Controllers\User\CartController;
@@ -15,7 +14,7 @@ use App\Http\Controllers\User\CartController;
 |
 */
 
-Route::get('/', function () {
+Route::middleware('guest')->get('/', function () {
     return view('user.welcome');
 });
 
@@ -32,6 +31,5 @@ Route::prefix('cart')->middleware('auth:users')->group(function () {
     Route::get('success', [CartController::class, 'success'])->name('cart.success');
     Route::get('cancel', [CartController::class, 'cancel'])->name('cart.cancel');
 });
-
 
 require __DIR__ . '/auth.php';
