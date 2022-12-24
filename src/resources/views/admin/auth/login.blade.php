@@ -9,7 +9,6 @@
             @auth('admin')
             <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ホーム</a>
             @else
-            <a href="{{ route('admin.login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ログイン</a>
             @if (Route::has('admin.register'))
             <a href="{{ route('admin.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">新規登録する</a>
             @endif
@@ -52,5 +51,16 @@
                 </x-primary-button>
             </div>
         </form>
+        @if (Route::has('admin.login'))
+        <div class="px-2 py-4 sm:block">
+            @auth('admin')
+            <a href="{{ url('/') }}" class="text-sm text-black-700 dark:text-gray-500 underline">ホーム</a>
+            @else
+            @if (Route::has('admin.register'))
+            <a href="{{ route('admin.register') }}" class="ml-2 text-sm text-gray-700 dark:text-gray-500 underline">アカウントを作成する</a>
+            @endif
+            @endauth
+        </div>
+        @endif
     </x-auth-card>
 </x-guest-layout>

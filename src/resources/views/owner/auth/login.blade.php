@@ -2,7 +2,10 @@
     <x-auth-card>
         <h1 class="py-4" style="font-size: 1.4rem;">店舗オーナーログイン</h1>
         <x-slot name="logo">
+            <h1 class="py-4 text-center" style="font-size: 1.7rem; font-weight: 800;">あわら市初のデリバリーサービス</h1>
             <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            <h1 class="py-4 text-center" style="font-size: 1.3rem; font-weight: 700;">AWARAEATSに加盟して</br>
+                あわら市の食を多くの人に！</h1>
         </x-slot>
 
         <!-- Session Status -->

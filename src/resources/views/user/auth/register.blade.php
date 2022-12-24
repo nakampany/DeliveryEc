@@ -10,9 +10,6 @@
             <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ホーム</a>
             @else
             <a href="{{ route('user.login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ログイン</a>
-            @if (Route::has('user.register'))
-            <a href="{{ route('user.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">新規登録する</a>
-            @endif
             @endauth
         </div>
         @endif
