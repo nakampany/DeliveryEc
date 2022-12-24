@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Owner\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Owner\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Owner\Auth\ConfirmablePasswordController;
@@ -44,10 +43,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth:owners', 'verified'])->name('dashboard');
 
 Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-        ->name('register');
+    // Route::get('register', [RegisteredUserController::class, 'create'])
+    //     ->name('register');
 
-    Route::post('register', [RegisteredUserController::class, 'store']);
+    // Route::post('register', [RegisteredUserController::class, 'store']);
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');

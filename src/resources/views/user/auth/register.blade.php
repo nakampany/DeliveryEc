@@ -1,10 +1,18 @@
 <x-guest-layout>
     <x-auth-card>
+        <h1 class="py-4" style="font-size: 1.4rem;">ユーザー新規登録</h1>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
         </x-slot>
+        @if (Route::has('user.login'))
+        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+            @auth('users')
+            <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ホーム</a>
+            @else
+            <a href="{{ route('user.login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ログイン</a>
+            @endauth
+        </div>
+        @endif
 
         <form method="POST" action="{{ route('user.register') }}">
             @csrf
@@ -43,11 +51,11 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('user.login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('すでにアカウントをお持ちですか?') }}
                 </a>
 
                 <x-primary-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('新規登録する') }}
                 </x-primary-button>
             </div>
         </form>
