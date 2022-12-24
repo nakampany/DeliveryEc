@@ -15,10 +15,10 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('admin.owners.index')" :active="request()->routeIs('admin.owners.index')">
-                        オーナー管理
+                        オーナー管理一覧
                     </x-nav-link>
                     <x-nav-link :href="route('admin.expired-owners.index')" :active="request()->routeIs('admin.expired-owners.index')">
-                        期限切れオーナー一覧
+                        削除済みオーナー
                     </x-nav-link>
                 </div>
             </div>

@@ -23,12 +23,12 @@ class ProductController extends Controller
         $this->middleware('auth:owners');
 
         $this->middleware(function ($request, $next) {
+
             $id = $request->route()->parameter('product');
             if (!is_null($id)) {
                 $productsOwnerId = Product::findOrFail($id)->shop->owner->id;
                 $productId = (int)$productsOwnerId;
-                $ownerId = Auth::id();
-                if ($productId !== $ownerId) {
+                if ($productId !== Auth::id()) {
                     abort(404);
                 }
             }

@@ -14,15 +14,17 @@
                     <div class="w-1/2 p-4">
                         <a href="{{ route('owner.shops.edit', ['shop' => $shop->id ]) }}">
                             <div class="border rounded-md p-4">
-                                @if($shop->is_selling)
-                                <span class="border p-2 rounded-md bg-blue-400">販売中</span>
-                                @else
-                                <span class="border p-2 rounded-md bg-red-400">販売停止中</span>
-                                @endif
-                                <div class="text-xl">
+                                <div class="text-xl py-4">
                                     {{ $shop->name }}
                                 </div>
                                 <x-thumbnail :filename="$shop->filename" type="shops" />
+                                <div class="text-xl py-4">
+                                    @if($shop->is_selling)
+                                    <span class="border p-2 rounded-md bg-blue-400">販売中</span>
+                                    @else
+                                    <span class="border p-2 rounded-md bg-red-400">販売停止中</span>
+                                    @endif
+                                </div>
                             </div>
                         </a>
                     </div>

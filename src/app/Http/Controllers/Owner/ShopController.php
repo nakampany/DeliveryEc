@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Owner;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Shop;
 use App\Http\Requests\UploadImageRequest;
@@ -31,10 +30,9 @@ class ShopController extends Controller
             return $next($request);
         });
     }
+
     public function index()
     {
-        // phpinfo();
-
         $ownerId = Auth::id();
         $shops = Shop::where('owner_id', $ownerId)->get();
 
