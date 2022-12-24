@@ -61,8 +61,10 @@
             <a href="{{ url('/') }}" class="text-sm text-black-700 dark:text-gray-500 underline">ホーム</a>
             @else
             @if (Route::has('user.register'))
-            <h1 class="text-sm text-gray-700 dark:text-gray-500">AWARAEATS を使うのは初めてですか？</h1>
-            <a href="{{ route('user.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">アカウントを作成する</a>
+            <h1 class="text-sm text-gray-700 ">AWARAEATS を使うのは初めてですか？</h1>
+            <a href="{{ route('user.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">→ アカウントを作成する</a>
+            <h1 class="text-sm text-gray-700 ">AWARAEATS の加盟店オーナーですか？</h1>
+            <a href="{{ route('owner.login') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">→ オーナーアカウントでログインする</a>
             @endif
             @endauth
         </div>

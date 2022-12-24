@@ -46,7 +46,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                {{ $owners->links() }}
+                                <div class="py-4">
+                                    {{ $owners->links() }}
+                                </div>
                             </div>
                         </div>
                     </section>

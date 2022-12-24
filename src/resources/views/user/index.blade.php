@@ -18,11 +18,11 @@
                     <div>
                         <span class="text-sm">表示件数</span><br>
                         <select id="pagination" name="pagination">
-                            <option value="20" @if(\Request::get('pagination')==='20' ) selected @endif>20件
+                            <option value="20" @if(\Request::get('pagination')==='10' ) selected @endif>5件
                             </option>
-                            <option value="50" @if(\Request::get('pagination')==='50' ) selected @endif>50件
+                            <option value="50" @if(\Request::get('pagination')==='10' ) selected @endif>10件
                             </option>
-                            <option value="100" @if(\Request::get('pagination')==='100' ) selected @endif>100件
+                            <option value="100" @if(\Request::get('pagination')==='20' ) selected @endif>20件
                             </option>
                         </select>
                     </div>
