@@ -76,31 +76,30 @@ class CartController extends Controller
                 array_push($lineItems, $lineItem);
             }
         }
-        dd($lineItems);
-        // foreach ($products as $product) {
-        //     Stock::create([
-        //         'product_id' => $product->id,
-        //         'type' => \Constant::PRODUCT_LIST['reduce'],
-        //         'quantity' => $product->pivot->quantity * -1
-        //     ]);
-        // }
+        foreach ($products as $product) {
+            Stock::create([
+                'product_id' => $product->id,
+                'type' => \Constant::PRODUCT_LIST['reduce'],
+                'quantity' => $product->pivot->quantity * -1
+            ]);
+        }
 
-        // \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
-        // $session = \Stripe\Checkout\Session::create([
-        //     'payment_method_types' => ['card'],
-        //     'line_items' => [$lineItems],
-        //     'mode' => 'payment',
-        //     'success_url' => route('user.cart.success'),
-        //     'cancel_url' => route('user.cart.cancel'),
-        // ]);
+        $session = \Stripe\Checkout\Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [$lineItems],
+            'mode' => 'payment',
+            'success_url' => route('user.cart.success'),
+            'cancel_url' => route('user.cart.cancel'),
+        ]);
 
-        // $publicKey = env('STRIPE_PUBLIC_KEY');
+        $publicKey = env('STRIPE_PUBLIC_KEY');
 
-        // return view(
-        //     'user.checkout',
-        //     compact('session', 'publicKey')
-        // );
+        return view(
+            'user.checkout',
+            compact('session', 'publicKey')
+        );
     }
 
     public function success()
