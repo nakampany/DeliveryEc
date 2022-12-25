@@ -11,14 +11,18 @@
                 <div class="p-6 text-gray-900">
                     <section class="text-gray-600 body-font">
                         <div class="container px-5 mx-auto">
-                            <x-flash-message status="session('status')"></x-flash-message>
+                            <div class="py-4">
+                                <h1>過去に削除したアカウント一覧です。</h1>
+                                <h1>本当に必要ないアカウントは完全削除してください。</h1>
+                            </div>
+                            <x-flash-message status="session('status')" />
                             <div class="lg:w-2/3 w-full mx-auto overflow-auto">
                                 <table class="table-auto w-full text-left whitespace-no-wrap">
                                     <thead>
                                         <tr>
                                             <th class="px-4 py-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">名前</th>
                                             <th class="px-4 py-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">メール</th>
-                                            <th class="px-4 py-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">期限が切れた日</th>
+                                            <th class="px-4 py-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">削除された日</th>
                                             <th class="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br"></th>
                                         </tr>
                                     </thead>
@@ -31,7 +35,7 @@
                                             <form id="delete_{{$owner->id}}" method="post" action="{{ route('admin.expired-owners.destroy', ['owner' => $owner->id])}}">
                                                 @csrf
                                                 <td class="px-4 py-3 text-center">
-                                                    <a href="#" data-id="{{ $owner->id }}" onclick="deletePost(this)" class="bg-red-400 border-0 p-2 focus:outline-none hover:bg-red-500 rounded">完全に削除</a>
+                                                    <button href="#" data-id="{{ $owner->id }}" onclick="deletePost(this)" class="bg-red-400 border-0 p-2 focus:outline-none hover:bg-red-500 rounded">完全に削除</button>
                                                 </td>
                                             </form>
                                         </tr>
