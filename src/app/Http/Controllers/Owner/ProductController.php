@@ -77,7 +77,6 @@ class ProductController extends Controller
                     'image1' => $request->image1,
                     'image2' => $request->image2,
                     'image3' => $request->image3,
-                    'image4' => $request->image4,
                     'is_selling' => $request->is_selling
                 ]);
 
@@ -148,7 +147,6 @@ class ProductController extends Controller
                     $product->image1 = $request->image1;
                     $product->image2 = $request->image2;
                     $product->image3 = $request->image3;
-                    $product->image4 = $request->image4;
                     $product->is_selling = $request->is_selling;
                     $product->save();
 

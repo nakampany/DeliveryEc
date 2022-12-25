@@ -2,8 +2,6 @@
 if($name === 'image1'){ $modal = 'modal-1' ;}
 if($name === 'image2'){ $modal = 'modal-2' ;}
 if($name === 'image3'){ $modal = 'modal-3' ;}
-if($name === 'image4'){ $modal = 'modal-4' ;}
-if($name === 'image5'){ $modal = 'modal-5' ;}
 $cImage = $currentImage ?? '' ;
 $cId = $currentId ?? '' ;
 @endphp

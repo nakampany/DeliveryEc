@@ -70,11 +70,12 @@
                                     </select>
                                 </div>
                             </div>
-                            <x-select-image :images="$images" name="image1" />
-                            <x-select-image :images="$images" name="image2" />
-                            <x-select-image :images="$images" name="image3" />
-                            <x-select-image :images="$images" name="image4" />
-                            <x-select-image :images="$images" name="image5" />
+                            <div>
+                                <x-select-image :images="$images" name="image1" />
+                                <x-select-image :images="$images" name="image2" />
+                                <x-select-image :images="$images" name="image3" />
+                            </div>
+
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative flex justify-around">
                                     <div><input type="radio" name="is_selling" value="1" class="mr-2" checked>販売中</div>

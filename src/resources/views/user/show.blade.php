@@ -37,13 +37,6 @@
                                         <img src="">
                                         @endif
                                     </div>
-                                    <div class="swiper-slide">
-                                        @if ($product->imageFourth->filename !== null)
-                                        <img src="{{ asset('storage/products/' . $product->imageFourth->filename )}}">
-                                        @else
-                                        <img src="">
-                                        @endif
-                                    </div>
 
                                 </div>
                                 <!-- If we need pagination -->

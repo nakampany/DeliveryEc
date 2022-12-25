@@ -64,10 +64,17 @@ class CartController extends Controller
             if ($product->pivot->quantity > $quantity) {
                 return redirect()->route('user.cart.index');
             } else {
+                // $lineItem = [
+                //     'name' => $product->name,
+                //     'description' => $product->information,
+                //     'amount' => $product->price,
+                //     'currency' => 'jpy',
+                //     'quantity' => $product->pivot->quantity,
+                // ];
                 $lineItem = [
                     'line_items' => [
                         'price_data' => [
-                            'product_data' => ['name' => $product->name, 'currency' => 'jpy',],
+                            'product_data' => ['name' => $product->name, 'currency' => 'jpy'],
                             'unit_amount' => $product->price,
                         ],
                         'quantity' => $product->pivot->quantity,
