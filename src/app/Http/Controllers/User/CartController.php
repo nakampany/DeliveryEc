@@ -26,10 +26,12 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
-        $itemInCart = Cart::where('user_id', Auth::id())
-            ->where('product_id', $request->product_id)->first();
+        $itemInCart = Cart::where('product_id', Auth::id())
+            ->where('user_id', $request->product_id)->first();
         if ($itemInCart) {
-            $itemInCart->quantity += $request->quantity; //数量を追加
+            // もし商品があれば、商品を追加
+            $itemInCart->quantity += $request->quantity;
+            $itemInCart->save();
         } else {
             Cart::create([
                 'user_id' => Auth::id(),
@@ -101,7 +103,8 @@ class CartController extends Controller
 
     public function success()
     {
-        Cart::where('user_id', Auth::id())->get();
+        //決済成功時にカートの中を削除
+        Cart::where('user_id', Auth::id())->delete();
         return redirect()->route('user.items.index');
     }
 
