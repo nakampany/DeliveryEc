@@ -42,5 +42,17 @@
                 </x-primary-button>
             </div>
         </form>
+        @if (Route::has('user.login'))
+        <div class="px-2 py-4 sm:block">
+            @auth('users')
+            <a href="{{ url('/') }}" class="text-sm text-black-700 dark:text-gray-500 underline">ホーム</a>
+            @else
+            @if (Route::has('user.register'))
+            <h1 class="text-sm text-gray-700 ">AWARAEATS の利用者ログインはこちら</h1>
+            <a href="{{ route('user.login') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">→ ユーザーアカウントでログインする</a>
+            @endif
+            @endauth
+        </div>
+        @endif
     </x-auth-card>
 </x-guest-layout>

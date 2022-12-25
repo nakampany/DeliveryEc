@@ -54,28 +54,29 @@ class CartController extends Controller
         $user = User::findOrFail(Auth::id());
         $products = $user->products;
 
+        // 事前に在庫を確認して保持（在庫を減らしておく）,
         $lineItems = [];
         foreach ($products as $product) {
             $quantity = '';
-            $quantity = Stock::where('product_id', $product->id)->sum('quantity');
+            $quantity = Stock::where('product_id', $product->id)
+                ->sum('quantity');
 
             if ($product->pivot->quantity > $quantity) {
                 return redirect()->route('user.cart.index');
             } else {
                 $lineItem = [
-                    'price_data' => [
-                        'product_data' => [
-                            'name' => $product->name,
-                            'description' => $product->information,
+                    'line_items' => [
+                        'price_data' => [
+                            'product_data' => ['name' => $product->name, 'currency' => 'jpy',],
+                            'unit_amount' => $product->price,
                         ],
-                        'currency' => 'jpy',
-                        'amount' => $product->price,
+                        'quantity' => $product->pivot->quantity,
                     ],
-                    'quantity' => $product->pivot->quantity,
                 ];
                 array_push($lineItems, $lineItem);
             }
         }
+
         foreach ($products as $product) {
             Stock::create([
                 'product_id' => $product->id,
@@ -96,10 +97,7 @@ class CartController extends Controller
 
         $publicKey = env('STRIPE_PUBLIC_KEY');
 
-        return view(
-            'user.checkout',
-            compact('session', 'publicKey')
-        );
+        return view('user.checkout', compact('session', 'publicKey'));
     }
 
     public function success()
