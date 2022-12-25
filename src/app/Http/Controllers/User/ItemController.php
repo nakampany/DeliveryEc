@@ -14,6 +14,7 @@ class ItemController extends Controller
     {
         $this->middleware('auth:users');
     }
+
     public function index()
     {
         $stocks = DB::table('t_stocks')
