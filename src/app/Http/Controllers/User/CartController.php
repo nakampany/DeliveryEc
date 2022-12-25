@@ -65,13 +65,12 @@ class CartController extends Controller
                 return redirect()->route('user.cart.index');
             } else {
                 $lineItem = [
-                    'line_items' => [
-                        'price_data' => [
-                            'product_data' => ['name' => $product->name, 'currency' => 'jpy',],
-                            'unit_amount' => $product->price,
-                        ],
-                        'quantity' => $product->pivot->quantity,
+                    'price_data' => [
+                        'product_data' => ['name' => $product->name, 'description' => $product->information],
+                        'unit_amount' => $product->price,
+                        'currency' => 'jpy',
                     ],
+                    'quantity' => $product->pivot->quantity,
                 ];
                 array_push($lineItems, $lineItem);
             }

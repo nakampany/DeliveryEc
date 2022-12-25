@@ -11,7 +11,7 @@
 
             .then(function(result) {
                 window.location.href = '{{ route('
-                user.cart.index ') }}';
+                user.cart.index ') }}'
             });
     }
 </script>

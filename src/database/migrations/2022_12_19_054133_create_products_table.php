@@ -36,9 +36,6 @@ return new class extends Migration
             $table->foreignId('image3')
                 ->nullable()
                 ->constrained('images');
-            $table->foreignId('image4')
-                ->nullable()
-                ->constrained('images');
             $table->timestamps();
         });
     }
