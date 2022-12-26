@@ -8,8 +8,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="text-gray-900 text-center flex justify-center">
+                <div class="text-gray-900 text-center my-2" style="margin-top: 20px;">
                     <x-flash-message status="session('status')" />
+                </div>
+                <div class="text-gray-900 text-center flex justify-center">
                     @foreach ($shops as $shop)
                     <div class="w-1/2 p-4">
                         <a href="{{ route('owner.shops.edit', ['shop' => $shop->id ]) }}">
