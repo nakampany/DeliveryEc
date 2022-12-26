@@ -1,4 +1,4 @@
-<p>決済ページへリダイレクトします。</p>
+<p>決済ページへ移動しています。</p>
 <script src="https://js.stripe.com/v3/"></script>
 <script>
     const publicKey = '{{ $publicKey }}'
