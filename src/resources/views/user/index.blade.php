@@ -11,22 +11,6 @@
                         <div><button class="ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">検索する</button></div>
                     </div>
                 </div>
-                <div class="flex">
-                    <div>
-                        <span class="text-sm">表示順</span><br>
-                    </div>
-                    <div>
-                        <span class="text-sm">表示件数</span><br>
-                        <select id="pagination" name="pagination">
-                            <option value="20" @if(\Request::get('pagination')==='10' ) selected @endif>5件
-                            </option>
-                            <option value="50" @if(\Request::get('pagination')==='10' ) selected @endif>10件
-                            </option>
-                            <option value="100" @if(\Request::get('pagination')==='20' ) selected @endif>20件
-                            </option>
-                        </select>
-                    </div>
-                </div>
             </div>
         </form>
     </x-slot>

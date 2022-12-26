@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Stock;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
@@ -25,7 +26,7 @@ class ItemController extends Controller
         // });
     }
 
-    public function index()
+    public function index(Request $request)
     {
         // SELECT `product_id`, sum(`quantity`) as `quantity` FROM `t_stocks`
         // GROUP BY `product_id`
@@ -44,7 +45,6 @@ class ItemController extends Controller
             ->join('images as image1', 'products.image1', '=', 'image1.id')
             ->join('images as image2', 'products.image2', '=', 'image2.id')
             ->join('images as image3', 'products.image3', '=', 'image3.id')
-            // ->join('images as image4', 'products.image4', '=', 'image4.id')
             ->where('shops.is_selling', true)
             ->where('products.is_selling', true)
             ->select(
@@ -57,8 +57,6 @@ class ItemController extends Controller
                 'image1.filename as filename'
             )
             ->get();
-        // dd($stocks, $products);
-
 
         return view('user.index', compact('products'));
     }

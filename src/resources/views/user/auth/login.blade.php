@@ -65,6 +65,8 @@
             <a href="{{ route('user.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">→ アカウントを作成する</a>
             <h1 class="text-sm text-gray-700 ">AWARAEATS の加盟店オーナーですか？</h1>
             <a href="{{ route('owner.login') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">→ オーナーアカウントでログインする</a>
+            <h1 class="text-sm text-gray-700 ">AWARAEATS の管理人ですか？</h1>
+            <a href="{{ route('admin.login') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">→ 管理者アカウントでログインする</a>
             @endif
             @endauth
         </div>
