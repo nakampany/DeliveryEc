@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Owner;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Throwable;
 use Illuminate\Support\Facades\Log;
@@ -83,17 +82,6 @@ class OwnersController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -139,6 +127,7 @@ class OwnersController extends Controller
             ->route('admin.owners.index')
             ->with(['message' => 'オーナー情報を削除しました。', 'status' => 'alert']);
     }
+
     public function expiredOwnerIndex()
     {
         $expiredOwners = Owner::onlyTrashed()->get();
@@ -150,6 +139,11 @@ class OwnersController extends Controller
     public function expiredOwnerDestroy($id)
     {
         Owner::onlyTrashed()->findOrFail($id)->forceDelete();
+        return redirect()->route('admin.expired-owners.index');
+    }
+    public function expiredOwnerRestore($id)
+    {
+        Owner::onlyTrashed()->findOrFail($id)->restore();
         return redirect()->route('admin.expired-owners.index');
     }
 }

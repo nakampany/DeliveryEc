@@ -54,11 +54,6 @@ class Product extends Model
         return $this->belongsTo(Image::class, 'image3', 'id');
     }
 
-    public function imageFourth()
-    {
-        return $this->belongsTo(Image::class, 'image4', 'id');
-    }
-
     public function stock()
     {
         return $this->hasMany(Stock::class);
@@ -115,9 +110,6 @@ class Product extends Model
         }
         if ($sortOrder === \Constant::SORT_ORDER['later']) {
             return $query->orderBy('products.created_at', 'desc');
-        }
-        if ($sortOrder === \Constant::SORT_ORDER['older']) {
-            return $query->orderBy('products.created_at', 'asc');
         }
     }
     public function scopeSelectCategory($query, $categoryId)

@@ -24,6 +24,7 @@
                                             <th class="px-4 py-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">メール</th>
                                             <th class="px-4 py-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">削除された日</th>
                                             <th class="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br"></th>
+                                            <th class="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -32,6 +33,12 @@
                                             <td class="px-4 py-4">{{ $owner->name }}</td>
                                             <td class=" px-4 py-4">{{ $owner->email }}</td>
                                             <td class="px-4 py-4">{{ $owner->deleted_at->diffForHumans() }}</td>
+                                            <form id="restore_{{$owner->id}}" method="post" action="{{ route('admin.expired-owners.restore', ['owner' => $owner->id])}}">
+                                                @csrf
+                                                <td class="px-4 py-3 text-center">
+                                                    <button href="#" data-id="{{ $owner->id }}" onclick="restorePost(this)" class="bg-indigo-500 border-0 p-2 focus:outline-none hover:bg-yellow-600 rounded">完全に復元</button>
+                                                </td>
+                                            </form>
                                             <form id="delete_{{$owner->id}}" method="post" action="{{ route('admin.expired-owners.destroy', ['owner' => $owner->id])}}">
                                                 @csrf
                                                 <td class="px-4 py-3 text-center">
@@ -50,6 +57,13 @@
         </div>
     </div>
     <script>
+        function restorePost(e) {
+            'use strict';
+            if (confirm('復元しますか?')) {
+                document.getElementById('restore_' + e.dataset.id).submit();
+            }
+        }
+
         function deletePost(e) {
             'use strict';
             if (confirm('本当に削除してもいいですか?')) {

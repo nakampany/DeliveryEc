@@ -17,60 +17,65 @@ class CategorySeeder extends Seeder
     {
         DB::table('primary_categories')->insert([
             [
-                'name' => '魚',
+                'name' => '海鮮',
                 'sort_order' => 1,
             ],
             [
-                'name' => 'どんぶり',
+                'name' => '丼',
                 'sort_order' => 2,
             ],
             [
-                'name' => 'その他',
+                'name' => 'イタリアン',
                 'sort_order' => 3,
             ],
             [
-                'name' => 'イタリアン',
+                'name' => 'その他',
                 'sort_order' => 4,
             ],
         ]);
         DB::table('secondary_categories')->insert([
             [
-                'name' => '海鮮丼',
+                'name' => '寿司名人',
                 'sort_order' => 1,
                 'primary_category_id' => 1,
             ],
             [
-                'name' => '寿司',
+                'name' => '魚丼屋A',
                 'sort_order' => 2,
                 'primary_category_id' => 1,
             ],
             [
-                'name' => '唐揚げ丼',
-                'sort_order' => 1,
-                'primary_category_id' => 2,
-            ],
-            [
-                'name' => '天丼',
-                'sort_order' => 2,
-                'primary_category_id' => 2,
-            ],
-            [
-                'name' => 'カツ丼',
+                'name' => '魚丼屋B',
                 'sort_order' => 3,
+                'primary_category_id' => 1,
+            ],
+            [
+                'name' => '魚の恩返し',
+                'sort_order' => 4,
+                'primary_category_id' => 1,
+            ],
+            [
+                'name' => 'DONBURIKAN',
+                'sort_order' => 1,
                 'primary_category_id' => 2,
             ],
             [
-                'name' => 'サラダチキン',
+                'name' => 'あわらのからあげ',
+                'sort_order' => 2,
+                'primary_category_id' => 2,
+            ],
+            [
+                'name' => 'woo kYons kitchen',
                 'sort_order' => 1,
                 'primary_category_id' => 3,
             ],
             [
-                'name' => 'パスタ',
+                'name' => 'Macho-s chicken(サラダチキン専門店)',
                 'sort_order' => 1,
                 'primary_category_id' => 4,
             ],
             [
-                'name' => 'ピザ',
+                'name' => 'ジーパイ（台湾からあげ）',
                 'sort_order' => 2,
                 'primary_category_id' => 4,
             ],
