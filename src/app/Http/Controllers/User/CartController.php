@@ -15,7 +15,7 @@ class CartController extends Controller
     {
         $user = User::findOrFail(Auth::id());
         $products = $user->products;
-        $totalPrice = 500;
+        $totalPrice = 0;
 
         foreach ($products as $product) {
             $totalPrice += $product->price * $product->pivot->quantity;
