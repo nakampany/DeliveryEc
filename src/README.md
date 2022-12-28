@@ -83,3 +83,7 @@ php artisan view:clear
 php artisan storage:link
 
 docker compose exec app bash
+
+heroku login
+heroku container:login
+heroku addons:create jawsdb:kitefin
