@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class="p-6 bg-white border-b border-gray-200" style="letter-spacing: 1px;">
                     @if (count($products) > 0)
                     @foreach ($products as $product )
                     <div class="flex items-center justify-center mb-2">
@@ -39,26 +39,27 @@
                             </form>
                         </div>
                     </div>
-                    <div class="p-4 flex justify-around items-center" style="letter-spacing: 1px;">
-                        <div>{{ $product->pivot->quantity }}個</div>
-                        <div>{{ number_format($product->pivot->quantity * $product->price )}}<span class="text-sm text-gray-700">円(税込)</span></div>
+                    <div class="p-4 flex justify-around items-center">
+                        <div class="w-1/2 flex justify-center items-center">{{ $product->pivot->quantity }}個</div>
+                        <div class="w-1/2 flex justify-center items-center">{{ number_format($product->pivot->quantity * $product->price )}}<span class="text-sm text-gray-700">円(税込)</span></div>
                     </div>
+                    <hr class="py-4">
 
                     @endforeach
-                    <hr class="py-4">
-                    <div class="flex justify-around items-center" style="letter-spacing: 1px;">
-                        <div> デリバリー配送料： </div>
-                        <div> 500 <span class="text-sm text-gray-700">円(税込)</span> </div>
+                    <div class="p-4 flex justify-around items-center">
+                        <div class="w-1/2 flex justify-center items-center"> デリバリー配送料： </div>
+                        <div class="w-1/2 flex justify-center items-center"> 500 <span class="text-sm text-gray-700">円(税込)</span> </div>
                     </div>
                     <hr class="py-4">
-                    <div class="flex justify-around items-center" style="letter-spacing: 1px; margin: 30px 0 70px;">
-                        <div> 合計：</div>
-                        <div> {{ number_format($totalPrice) }} <span class="text-sm text-gray-700">円(税込)</span> </div>
+                    <div class="p-4 flex justify-around items-center">
+                        <div class="w-1/2 flex justify-center items-center"> 合計：</div>
+                        <div class="w-1/2 flex justify-center items-center"> {{ number_format($totalPrice) }} <span class=" text-sm text-gray-700">円(税込)</span> </div>
                     </div>
+                    <hr class="py-4">
                     </p>
-                    <div class="mx-auto max-w-xl">
+                    <div class="mx-auto max-w-xl" style="margin-top:70px;">
                         <div>
-                            <button onclick="location.href='{{ route('user.cart.checkout') }}'" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">購入する
+                            <button onclick=" location.href='{{ route('user.cart.checkout') }}'" class=" flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">購入する
                             </button>
                         </div>
                         @else

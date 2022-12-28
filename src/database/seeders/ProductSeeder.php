@@ -15,32 +15,6 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('products')->insert([
-            [
-                'shop_id' => 1,
-                'secondary_category_id' => 1,
-                'image1' => 1,
-            ],
-            [
-                'shop_id' => 1,
-                'secondary_category_id' => 2,
-                'image1' => 2,
-            ],
-            [
-                'shop_id' => 1,
-                'secondary_category_id' => 3,
-                'image1' => 3,
-            ],
-            [
-                'shop_id' => 1,
-                'secondary_category_id' => 4,
-                'image1' => 3,
-            ],
-            [
-                'shop_id' => 1,
-                'secondary_category_id' => 5,
-                'image1' => 4,
-            ],
-        ]);
+        DB::table('products')->insert([]);
     }
 }

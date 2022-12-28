@@ -65,7 +65,7 @@ class CategorySeeder extends Seeder
                 'primary_category_id' => 2,
             ],
             [
-                'name' => 'woo kYons kitchen',
+                'name' => 'woo kYons kitchen(イタリアン)',
                 'sort_order' => 1,
                 'primary_category_id' => 3,
             ],
