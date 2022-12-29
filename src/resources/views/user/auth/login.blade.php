@@ -73,6 +73,6 @@
         @endif
         <h1 class="text-sm text-gray-700 ">テストアカウント</h1>
         <h1 class="ml-4 text-sm text-gray-700 ">Email test@test.com</h1>
-        <h1 class="ml-4 text-sm text-gray-700 ">Password test123</h1>
+        <h1 class="ml-4 text-sm text-gray-700 ">Password test1111</h1>
     </x-auth-card>
 </x-guest-layout>

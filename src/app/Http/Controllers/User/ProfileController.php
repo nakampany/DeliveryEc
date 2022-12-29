@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Redirect;
 class ProfileController extends Controller
 {
 
-    public function create(ProfileUpdateRequest $request)
-    {
-        return Redirect::route('user.profile.edit')->with('status', 'profile-updated');
-    }
-
     public function edit(Request $request)
     {
         return view('user.profile.edit', [

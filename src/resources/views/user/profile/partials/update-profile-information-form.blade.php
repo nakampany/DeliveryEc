@@ -47,6 +47,32 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="zip_code" :value="__('郵便番号')" />
+            <x-text-input id="zip_code" name="zip_code" type="text" class="mt-1 block w-full" :value="old('zip_code', $user->zip_code)" required autofocus autocomplete="zip_code" />
+            <x-input-error class="mt-2" :messages="$errors->get('zip_code')" />
+        </div>
+
+        <div>
+            <x-input-label for="address" :value="__('住所')" />
+            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" required autofocus autocomplete="address" />
+            <x-input-error class="mt-2" :messages="$errors->get('address')" />
+        </div>
+
+        <div>
+            <x-input-label for="address_detail" :value="__('配達住所詳細')" />
+            <x-text-input id="address_detail" name="address_detail" type="text" class="mt-1 block w-full" :value="old('address_detail', $user->address_detail)" required autofocus autocomplete="address_detail" />
+            <x-input-error class="mt-2" :messages="$errors->get('address_detail')" />
+        </div>
+
+        <div>
+            <x-input-label for="tel" :value="__('電話番号')" />
+            <x-text-input id="tel" name="tel" type="text" class="mt-1 block w-full" :value="old('tel', $user->tel)" required autofocus autocomplete="tel" />
+            <x-input-error class="mt-2" :messages="$errors->get('tel')" />
+        </div>
+
+
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('保存する') }}</x-primary-button>
 
