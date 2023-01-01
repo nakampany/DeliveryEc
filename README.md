@@ -3,7 +3,7 @@
 | key    | value                                                |
 | ------ | ---------------------------------------------------- |
 | Name   | AWARAEATS（あわら市デリバリーデモサイト）`AWARAEATS` |
-| URL    | https://grfl.work/                                   |
+| URL    |                                |
 | GitHub | https://github.com/nakampany/DeliveryEc                 |
 
 
