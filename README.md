@@ -2,10 +2,11 @@
   <a href="https://mobile.twitter.com/nakaji__1229" target="_blank">
   <img src="https://img.shields.io/twitter/url?label=%E9%96%8B%E7%99%BA%E8%80%85%E3%81%AETweet%E3%82%92%E8%A6%8B%E3%82%8B&style=social&url=https%3A%2F%2Ftwitter.com%2Fso_webeng" alt="Developer's Twitter account">
   </a>
-</p>
+
 
 <p align="center"><b>AWARAEATSデリバリーECサイト</b></p>
-
+<p align="center"><a href="" width="400"></a></p>
+<h1 align="center">気分deご飯</h1>
 # 1.アプリ概要
 
 | key    | value                                                |
