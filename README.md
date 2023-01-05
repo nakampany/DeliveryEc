@@ -4,6 +4,8 @@
   </a>
 </p>
 
+<p align="center"><b>AWARAEATSデリバリーECサイト</b></p>
+
 # 1.アプリ概要
 
 | key    | value                                                |
