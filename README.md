@@ -6,7 +6,7 @@
 
 <p align="center"><b>AWARAEATSデリバリーECサイト</b></p>
 <p align="center"><a href="" width="400"></a></p>
-<h1 align="center">気分deご飯</h1>
+<h1 align="center">デリバリーECサイト</h1>
 # 1.アプリ概要
 
 | key    | value                                                |
