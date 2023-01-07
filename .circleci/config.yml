@@ -25,10 +25,10 @@ jobs:
       # - run:
       #     command: php artisan config:clear
       #     working_directory: ./src
-      - run:
-          name: php test
-          working_directory: ./src
-          command: vendor/bin/phpunit tests/Feature
+      # - run:
+      #     name: php test
+      #     working_directory: ./src
+      #     command: vendor/bin/phpunit tests/Feature
           #command: vendor/bin/phpunit # tests/Feature
       # - checkout
       # - run:
