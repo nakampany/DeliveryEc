@@ -4,7 +4,7 @@
   </a>
 
 
-<p align="center"><b>AWARAEATSデリバリーECサイト</b></p>
+<p align="center"><b>AWARAEATSデリバリーECデモサイト</b></p>
 <p align="center"><a href="" width="400"></a></p>
 <h1 align="center">デリバリーECサイト</h1>
 # 1.アプリ概要
